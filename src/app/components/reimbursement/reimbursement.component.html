@@ -1,0 +1,48 @@
+
+<div class="topnav">
+<h1>Expense Reimbursement</h1>
+
+</div>
+<form>
+<div class="topbutton">
+
+        <button class ="mybutton1"
+        (click)="createNewRecord()" 
+    >Create New Request</button>
+    <!--{{message}}
+    -->
+    
+
+
+</div>
+</form>
+
+
+
+<div>
+                <table class="table" BORDER="5"    WIDTH="50%"   CELLPADDING="4" CELLSPACING="3">
+                  <thead>
+                    <tr>
+                        <th>Reimbursement ID</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                        <th>Submit Date</th>
+                        <th>Resolved Date</th>
+                      </tr>
+                  </thead>
+        
+                      <tbody *ngFor="let record of records" >
+                        <tr ALIGN="CENTER" >
+        
+                            <td>{{record.reimbursementId}}</td>
+                            <td>{{record.type}}</td>
+                            <td>{{record.status}}</td>
+                            <td>{{record.submitted}}</td>
+                            <td>{{record.resolved}}</td>
+                          </tr>
+                    </tbody>
+                 </table>
+               </div>
+
+        

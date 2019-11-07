@@ -1,0 +1,35 @@
+.topnav {
+    background-color: #cd7f32;
+    overflow: hidden;
+   
+
+  }
+  
+  h1{
+    color: rgb(33, 12, 71)
+
+  }
+.topbutton{
+    
+        background-color: rgb(168, 175, 76);
+        border: red;
+        color: white;
+        padding: 15px 32px;
+        text-align: right;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        width: 92.5vw;
+        height: 10vh;
+}
+
+.mybutton1 {
+    background-color: rgb(20, 136, 165); 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }

@@ -1,0 +1,28 @@
+#login {
+    background: #cd7f32;
+    width: 100vw;
+    height: 50vh;
+    text-align: center;
+}
+
+h1 {
+    padding-top: 30px;
+    margin: 0;
+    font-family: monospace;
+    text-underline-position: below;
+} 
+
+h2{
+    padding-top: 30px;
+    margin: 0;
+    font-family: monospace;
+    text-underline-position: below;
+
+}
+
+#bottom{
+    background: #98ff99;
+    width: 100vw;
+    height: 50vh;
+    
+}
