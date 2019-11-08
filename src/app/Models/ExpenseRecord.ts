@@ -1,8 +1,12 @@
 export class ExpenseRecord {
-    reimbursementId: string;
-    type: string;
-    status: string;
-    amount: string;
-    submitted: string;
-    resolved: string;
+    ticketid: number;
+    amount: number;
+    datesubmitted: Date;
+    dateresolved: Date;
+    description: string;
+    receipt: string;
+    authodId: number;
+    resolvedid: number;
+    statusid: number;
+    typeid: number;
 }

@@ -3,6 +3,7 @@ import{ExpenseRecord} from '../../Models/ExpenseRecord';
 import {HttpClient} from '@angular/common/http';
 //import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
+import { ErsService } from 'src/app/ers.service';
 
 @Component({
   selector: 'app-reimbursement',
@@ -11,9 +12,11 @@ import { Router } from '@angular/router';
 })
 export class ReimbursementComponent implements OnInit {
 
-  url: string = 'http://localhost:8080/getAllExpenseRecords';
+  //url: string = 'http://localhost:8080/getAllExpenseRecords';
 
-  records: Array<ExpenseRecord> = [
+  records: any; 
+  //Array<ExpenseRecord> = [];
+  /*[
     {reimbursementId: '123456', type: 'expense', status: 'In Process', amount: '100', submitted: '10/20/2019', resolved: '10/31/2019'},
     {reimbursementId: '123457', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
     {reimbursementId: '123458', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
@@ -29,18 +32,18 @@ export class ReimbursementComponent implements OnInit {
     {reimbursementId: '123467', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
     {reimbursementId: '123468', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'}
   ];
-
+*/
   message = '';
 
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private ersService: ErsService) {
        
    }
 
   ngOnInit() {
-    //this.http.get<ExpenseRecord>(this.url).subscribe(res => {
-      //this.records.push(res);
-    //}); 
+    this.ersService.getAll().subscribe(res => {
+      this.records.push(res);
+    }); 
   }
 
   createNewRecord() {

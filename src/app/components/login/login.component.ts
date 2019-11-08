@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/login.service';
+import { ErsService } from 'src/app/ers.service';
 
 @Component({
   selector: 'app-login',
@@ -13,16 +14,16 @@ export class LoginComponent implements OnInit {
 
   invalidInput = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private ersService: ErsService) { }
 
   ngOnInit() {
   }
   submit() {
-    const credentials = {
+   /* const credentials = {
       Username: this.inputUsername,
       Password: this.inputPassword
-    };
-    if (!this.loginService.login(credentials)) {
+    };*/
+    if (!this.ersService.login(this.inputUsername, this.inputPassword )) {
       this.invalidInput = true;
 
     }
