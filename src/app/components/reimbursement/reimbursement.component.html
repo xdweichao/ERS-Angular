@@ -23,26 +23,28 @@
                 <table class="table" BORDER="5"    WIDTH="50%"   CELLPADDING="4" CELLSPACING="3">
                   <thead>
                     <tr>
-                        <th>Reimbursement ID</th>
-                        <th>Type</th>
-                        <th>Status</th>
+                        <th>Ticket ID</th>
                         <th>Amount</th>
                         <th>Submit Date</th>
                         <th>Resolved Date</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Type</th>
                       </tr>
                   </thead>
         
                       <tbody *ngFor="let record of records" >
                         <tr ALIGN="CENTER" >
         
-                            <td>{{record.reimbursementId}}</td>
-                            <td>{{record.type}}</td>
-                            <td>{{record.status}}</td>
-                            <td>{{record.submitted}}</td>
-                            <td>{{record.resolved}}</td>
+                            <td>{{record.ticketid}}</td>
+                            <td>{{record.amount}}</td>
+                            <td>{{record.datesubmitted | date: 'yyyy-MM-dd'}}</td>
+                            <td>{{record.dateresolved | date: 'yyyy-MM-dd'}}</td>
+                            <td>{{record.description}}</td>
+                            <td><div ng-if='record.statusid === 1'>{{Pending}}</div>{{record.statusid}}</td>
+                            <td>{{record.typeid}}</td>
                           </tr>
                     </tbody>
                  </table>
                </div>
-
         

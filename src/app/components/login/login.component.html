@@ -1,32 +1,22 @@
-
 <section>
-<section id="login">
+    <section id="login">
 
-   
-<h1>Employee Reimbursement System</h1>
-         
-<h2>Login To Get Started!</h2>
 
-<form>
+        <h1>Employee Reimbursement System</h1>
 
-        <input 
-            [(ngModel)]="inputUsername" name="Username"
-            type="username" placeholder="Username">
-        <input 
-            [(ngModel)]="inputPassword" name="password"
-            type="password" placeholder="password">
-        <button
-            [disabled]="!(inputUsername && inputPassword)"
-            (click)="submit()"
-        >Submit</button>
+        <h2>Login To Get Started!</h2>
 
-        <div *ngIf="invalidInput">
-                Invalid credentials.
-            </div>
-    </form>
-</section>
-<section id="bottom">
-    
-</section>
+            <form>
 
-</section>
+                <input [(ngModel)]="inputUsername" name="Username" type="username" placeholder="Username">
+                <input [(ngModel)]="inputPassword" name="password" type="password" placeholder="password">
+                <button [disabled]="!(inputUsername && inputPassword)" (click)="submit()">Submit</button>
+
+                <div *ngIf="invalidInput">
+                    Invalid credentials.
+                </div>
+            </form>
+    </section>
+    <section id="bottom"> </section>
+
+</section>            

@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReimbursementComponent } from './components/reimbursement/reimbursement.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CreateNewRequestComponent } from './components/create-new-request/create-new-request.component';
+import { UsersService } from './shared/users.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { CreateNewRequestComponent } from './components/create-new-request/creat
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

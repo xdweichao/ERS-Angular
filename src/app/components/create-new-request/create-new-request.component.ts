@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ExpenseRecord } from 'src/app/Models/ExpenseRecord';
-import { User } from 'src/app/Models/User';
-import { ErsService } from 'src/app/ers.service';
+import { Users } from 'src/app/Models/Users';
+import { ErsService } from 'src/app/shared/ers.service';
 
 @Component({
   selector: 'app-create-new-request',
@@ -10,7 +10,7 @@ import { ErsService } from 'src/app/ers.service';
 })
 export class CreateNewRequestComponent implements OnInit {
   @Input()
-  user: User;
+  user: Users;
 
   ticket: ExpenseRecord;
   ticketstr: string;

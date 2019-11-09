@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import{ExpenseRecord} from '../../Models/ExpenseRecord';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 //import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
-import { ErsService } from 'src/app/ers.service';
+import { ErsService } from 'src/app/shared/ers.service';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-reimbursement',
@@ -15,24 +16,6 @@ export class ReimbursementComponent implements OnInit {
   //url: string = 'http://localhost:8080/getAllExpenseRecords';
 
   records: any; 
-  //Array<ExpenseRecord> = [];
-  /*[
-    {reimbursementId: '123456', type: 'expense', status: 'In Process', amount: '100', submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123457', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123458', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123459', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123460', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123461', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123461', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123462', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123463', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123464', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123465', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123466', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123467', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'},
-    {reimbursementId: '123468', type: 'expense', status: 'In Process', amount: '100',submitted: '10/20/2019', resolved: '10/31/2019'}
-  ];
-*/
   message = '';
 
 
@@ -41,9 +24,23 @@ export class ReimbursementComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.ersService.getAll().subscribe(res => {
-      this.records.push(res);
-    }); 
+    this.getAll();
+  }
+
+  async getAll() {
+    var tickets = await this.ersService.getAll();
+    var objStr = JSON.stringify(tickets);
+    console.log('objstr' + objStr);
+    this.records = tickets;
+  }
+
+  extractData(res: HttpResponse<Object>) {
+    var key, count = 0;
+    console.log('Obj: ' + JSON.stringify(res.body));
+    for(key in res.body) {
+      console.log('Obj: ' + JSON.stringify(res.body[count]));
+        this.records.push(res.body[count++]);
+    }
   }
 
   createNewRecord() {

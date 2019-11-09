@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/login.service';
-import { ErsService } from 'src/app/ers.service';
+import { ErsService } from 'src/app/shared/ers.service';
+import { Users } from 'src/app/Models/Users';
+import { UsersService } from 'src/app/shared/users.service';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,20 +16,19 @@ export class LoginComponent implements OnInit {
   inputPassword = '';
 
   invalidInput = false;
-
-  constructor(private ersService: ErsService) { }
+  constructor(private ersService: ErsService, private userService: UsersService, private router: Router) { }
 
   ngOnInit() {
   }
-  submit() {
-   /* const credentials = {
-      Username: this.inputUsername,
-      Password: this.inputPassword
-    };*/
-    if (!this.ersService.login(this.inputUsername, this.inputPassword )) {
+  async submit() {
+    await this.ersService.login(this.inputUsername, this.inputPassword);
+    if (this.userService.user.userid != -1) {
+      this.invalidInput = false;
+      this.router.navigateByUrl('/reimbursement');
+    } else {
       this.invalidInput = true;
-
     }
   }
-
 }
+
+
