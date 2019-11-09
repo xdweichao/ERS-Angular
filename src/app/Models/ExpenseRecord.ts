@@ -5,8 +5,8 @@ export class ExpenseRecord {
     dateresolved: Date;
     description: string;
     receipt: string;
-    authodId: number;
-    resolvedid: number;
+    authorid: number;
+    resolverid: number;
     statusid: number;
     typeid: number;
 }

@@ -8,13 +8,15 @@ import { ReimbursementComponent } from './components/reimbursement/reimbursement
 import {HttpClientModule} from '@angular/common/http';
 import { CreateNewRequestComponent } from './components/create-new-request/create-new-request.component';
 import { UsersService } from './shared/users.service';
+import { ViewAllTicketsComponent } from './components/view-all-tickets/view-all-tickets.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ReimbursementComponent,
-    CreateNewRequestComponent
+    CreateNewRequestComponent,
+    ViewAllTicketsComponent
   ],
   imports: [
     BrowserModule,

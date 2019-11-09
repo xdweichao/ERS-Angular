@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ExpenseRecord } from 'src/app/Models/ExpenseRecord';
 import { Users } from 'src/app/Models/Users';
 import { ErsService } from 'src/app/shared/ers.service';
+import { UsersService } from 'src/app/shared/users.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-create-new-request',
@@ -15,7 +18,7 @@ export class CreateNewRequestComponent implements OnInit {
   ticket: ExpenseRecord;
   ticketstr: string;
 
-  constructor(private ersService: ErsService) { }
+  constructor(private ersService: ErsService, private userService: UsersService, private router: Router) { }
 
   ngOnInit() {
     this.ticket = {
@@ -25,8 +28,8 @@ export class CreateNewRequestComponent implements OnInit {
       dateresolved: null,
       description: null,
       receipt: null,
-      authodId: null,
-      resolvedid: null,
+      authorid: null,
+      resolverid: null,
       statusid: null,
       typeid: null,
     };
@@ -37,7 +40,7 @@ export class CreateNewRequestComponent implements OnInit {
   }
 
   setupTicket(){
-    this.ticket.authodId = 600; //this.user.userid;
+    this.ticket.authorid = this.userService.user.userid;
     this.ticket.datesubmitted = new Date();
   }
 
@@ -46,6 +49,7 @@ export class CreateNewRequestComponent implements OnInit {
     this.getTicketStr;
     console.log('Submitted Ticket:' + this.ticketstr);
     this.ersService.create(this.ticket);
+    this.router.navigateByUrl('/reimbursement');
   }
 
 }

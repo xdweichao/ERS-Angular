@@ -7,13 +7,11 @@ import { ErsService } from 'src/app/shared/ers.service';
 import { tick } from '@angular/core/testing';
 
 @Component({
-  selector: 'app-reimbursement',
-  templateUrl: './reimbursement.component.html',
-  styleUrls: ['./reimbursement.component.css']
+  selector: 'app-view-all-tickets',
+  templateUrl: './view-all-tickets.component.html',
+  styleUrls: ['./view-all-tickets.component.css']
 })
-export class ReimbursementComponent implements OnInit {
-
-  //url: string = 'http://localhost:8080/getAllExpenseRecords';
+export class ViewAllTicketsComponent implements OnInit {
 
   records: any; 
   message = '';
@@ -24,11 +22,11 @@ export class ReimbursementComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getAll();
+    this.getAllUserTickets();
   }
 
-  async getAll() {
-    var tickets = await this.ersService.getAll();
+  async getAllUserTickets() {
+    var tickets = await this.ersService.getAllUserTickets();
     var objStr = JSON.stringify(tickets);
     console.log('objstr' + objStr);
     this.records = tickets;
@@ -42,18 +40,4 @@ export class ReimbursementComponent implements OnInit {
         this.records.push(res.body[count++]);
     }
   }
-
-  createNewRecord() {
-    //this.http.post<ExpenseRecord>(this.url, msg).subscribe(res => {
-     // this.records.push(res);
-    //}); 
-    this.router.navigateByUrl('/create-new-request');
-    this.message = 'Creating new expense request';
-   }
-  viewAllTickets(){
-    this.router.navigateByUrl('/view-all-tickets');
-    this.message = 'Viewing All Tickets';
-  }
-
 }
-

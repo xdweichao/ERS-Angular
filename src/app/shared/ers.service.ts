@@ -44,7 +44,10 @@ export class ErsService {
 
    async getAll()  {
     const url = this.baseUrl + 'ticket/EmpActions';
-    const userId = this.userService.user.userid;
+    let userId = -1;
+    if(this.userService.user) {
+       userId =     this.userService.user.userid;
+    }
     console.log('UserId: ' + userId);
     
     return await this.http.get(url, {
@@ -52,6 +55,21 @@ export class ErsService {
         userid: this.userService.user.userid.toString()
       }}).toPromise();
   }
+  async getAllUserTickets()  {
+    const url = this.baseUrl + 'ticket/FinManActions';
+    const userId = this.userService.user.userid;
+    console.log('UserId: ' + userId);
+    
+    return await this.http.get(url, {
+      params: {
+        userid: this.userService.user.userid.toString(),
+        role: this.userService.user.role.toString()
+      }}).toPromise();
+  }
+
+
+
+
 
   extractData(res: HttpResponse<ExpenseRecord>) {
     var array = new Array();

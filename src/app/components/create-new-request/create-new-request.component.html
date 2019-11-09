@@ -9,10 +9,10 @@ $<input [(ngModel)]="ticket.amount" type="number" name="amountbox" id="amount" r
 <br>
 <form>
     <p>Reimbursement Type:</p>
-    <input [(ngModel)]="ticket.type" type="radio" name="tickettype" value="1"> Lodging
-    <input [(ngModel)]="ticket.type" type="radio" name="tickettype" value="2"> Travel
-    <input [(ngModel)]="ticket.type" type="radio" name="tickettype" value="3"> Food
-    <input [(ngModel)]="ticket.type" type="radio" name="tickettype" value="4"> Other
+    <input [(ngModel)]="ticket.typeid" type="radio" name="tickettypeid" value="1"> Lodging
+    <input [(ngModel)]="ticket.typeid" type="radio" name="tickettypeid" value="2"> Travel
+    <input [(ngModel)]="ticket.typeid" type="radio" name="tickettypeid" value="3"> Food
+    <input [(ngModel)]="ticket.typeid" type="radio" name="tickettypeid" value="4"> Other
 </form>
 <br>
 <button (click)="submit()" type="submit">Submit Ticket</button>

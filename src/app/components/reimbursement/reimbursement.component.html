@@ -3,6 +3,7 @@
 <h1>Expense Reimbursement</h1>
 
 </div>
+
 <form>
 <div class="topbutton">
 
@@ -11,16 +12,19 @@
     >Create New Request</button>
     <!--{{message}}
     -->
+
     
+        <button class ="mybutton2"
+        (click)="viewAllTickets()" 
+    >View All Tickets</button>
 
 
 </div>
 </form>
 
 
-
 <div>
-                <table class="table" BORDER="5"    WIDTH="50%"   CELLPADDING="4" CELLSPACING="3">
+                <table class="table" BORDER="5"    WIDTH="95%"   CELLPADDING="4" CELLSPACING="3">
                   <thead>
                     <tr>
                         <th>Ticket ID</th>
