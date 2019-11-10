@@ -30,10 +30,10 @@
                     <td>{{record.description}}</td>
                     <td><div ng-if='record.statusid === 1'>{{Pending}}</div>{{record.statusid}}</td>
                     <td>{{record.typeid}}</td>
-                    <td *ngIf='record.statusid===1 && record.authorid!==userid' >
-                        <button class="mybutton3" mat-flat-button  (click)="approveRequest(record)">Approve</button>
+                    <td *ngIf='record.statusid===1'>
+                        <button class="mybutton3" mat-flat-button  (click)="approveRequest()">Approve</button>
                         <div class="divider"></div>
-                        <button class="mybutton4" mat-flat-button (click)="denyRequest(record)">Deny</button>
+                        <button class="mybutton4" mat-flat-button (click)="denyRequest()">Deny</button>
                     </td>
                   </tr>
             </tbody>

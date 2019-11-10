@@ -6,20 +6,9 @@
 
 <form>
 <div class="topbutton">
-
-        <button class ="mybutton1"
-        (click)="createNewRecord()" 
-    >Create New Request</button>
-    <!--{{message}}
-    -->
-
-    
-        <button class ="mybutton2"
-        (click)="viewAllTickets()" 
-    >View All Tickets</button>
-
-
-</div>
+    <button class="mybutton1" *ngIf="isManager" (click)="viewAllTickets()">View All Tickets</button>
+    <button class="mybutton2" (click)="createNewRecord()">Create New Request</button>
+</div> 
 </form>
 
 
@@ -34,6 +23,7 @@
                         <th>Description</th>
                         <th>Status</th>
                         <th>Type</th>
+                        
                       </tr>
                   </thead>
         
@@ -45,8 +35,10 @@
                             <td>{{record.datesubmitted | date: 'yyyy-MM-dd'}}</td>
                             <td>{{record.dateresolved | date: 'yyyy-MM-dd'}}</td>
                             <td>{{record.description}}</td>
-                            <td><div ng-if='record.statusid === 1'>{{Pending}}</div>{{record.statusid}}</td>
+                            <td>{{record.statusid}}</td>
                             <td>{{record.typeid}}</td>
+                            
+                    
                           </tr>
                     </tbody>
                  </table>

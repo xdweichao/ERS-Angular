@@ -9,6 +9,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { CreateNewRequestComponent } from './components/create-new-request/create-new-request.component';
 import { UsersService } from './shared/users.service';
 import { ViewAllTicketsComponent } from './components/view-all-tickets/view-all-tickets.component';
+import {MatButtonModule} from '@angular/material/button';
+import { ApproveRequestComponent } from './components/approve-request/approve-request.component';
+import { DenyRequestComponent } from './components/deny-request/deny-request.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { ViewAllTicketsComponent } from './components/view-all-tickets/view-all-
     LoginComponent,
     ReimbursementComponent,
     CreateNewRequestComponent,
-    ViewAllTicketsComponent
+    ViewAllTicketsComponent,
+    ApproveRequestComponent,
+    DenyRequestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]

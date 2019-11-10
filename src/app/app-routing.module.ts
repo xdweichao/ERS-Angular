@@ -4,6 +4,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ReimbursementComponent } from './components/reimbursement/reimbursement.component';
 import { CreateNewRequestComponent } from './components/create-new-request/create-new-request.component';
 import {ViewAllTicketsComponent} from './components/view-all-tickets/view-all-tickets.component';
+import { ApproveRequestComponent } from './components/approve-request/approve-request.component';
+import { DenyRequestComponent } from './components/deny-request/deny-request.component';
+
 
 
 const routes: Routes = [{
@@ -27,7 +30,17 @@ const routes: Routes = [{
 {
   path:'view-all-tickets',
   component:ViewAllTicketsComponent
+},
+{
+  path:'approve-Request',
+  component:ApproveRequestComponent
+  
+},
+{
+  path:'deny-Request',
+  component:DenyRequestComponent
 }
+
 
 ];
 

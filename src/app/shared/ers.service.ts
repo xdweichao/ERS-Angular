@@ -87,4 +87,17 @@ export class ErsService {
     const record = await this.http.post<ExpenseRecord>(url, newRequest).toPromise();
     console.log('Return Record: ' + JSON.stringify(record));
 }
+
+async update(updateRequest: ExpenseRecord) {
+  const url = this.baseUrl +  'ticket/FinManActions';
+  console.log('ExpenseRecord: ' + JSON.stringify(updateRequest));
+  const record = await this.http.put<ExpenseRecord>(url, updateRequest, {params: {
+    userid: this.userService.user.userid.toString(),
+    role: this.userService.user.role.toString()
+  }}).toPromise();
+  console.log('Return Record: ' + JSON.stringify(record));
+}
+
+
+
 }

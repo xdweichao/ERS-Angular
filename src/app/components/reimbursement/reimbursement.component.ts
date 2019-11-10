@@ -5,6 +5,7 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ErsService } from 'src/app/shared/ers.service';
 import { tick } from '@angular/core/testing';
+import { UsersService } from 'src/app/shared/users.service';
 
 @Component({
   selector: 'app-reimbursement',
@@ -17,13 +18,16 @@ export class ReimbursementComponent implements OnInit {
 
   records: any; 
   message = '';
-
-
-  constructor(private http: HttpClient, private router: Router, private ersService: ErsService) {
-       
+  isManager: boolean = false;
+ 
+  constructor(private http: HttpClient, private router: Router, private ersService: ErsService, private userService: UsersService) {
    }
 
   ngOnInit() {
+    if(this.userService.user) {
+      this.isManager = this.userService.user.role === 2;
+    }
+    console.log('Manager: ' + this.isManager);
     this.getAll();
   }
 
@@ -54,6 +58,7 @@ export class ReimbursementComponent implements OnInit {
     this.router.navigateByUrl('/view-all-tickets');
     this.message = 'Viewing All Tickets';
   }
+  
 
 }
 
