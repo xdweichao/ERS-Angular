@@ -10,8 +10,8 @@ import { CreateNewRequestComponent } from './components/create-new-request/creat
 import { UsersService } from './shared/users.service';
 import { ViewAllTicketsComponent } from './components/view-all-tickets/view-all-tickets.component';
 import {MatButtonModule} from '@angular/material/button';
-import { ApproveRequestComponent } from './components/approve-request/approve-request.component';
-import { DenyRequestComponent } from './components/deny-request/deny-request.component';
+import { StatusName } from './pipes/statuspipe';
+import { ActionTypePipe } from './pipes/action-type.pipe';
 
 @NgModule({
   declarations: [
@@ -20,8 +20,8 @@ import { DenyRequestComponent } from './components/deny-request/deny-request.com
     ReimbursementComponent,
     CreateNewRequestComponent,
     ViewAllTicketsComponent,
-    ApproveRequestComponent,
-    DenyRequestComponent
+    StatusName,
+    ActionTypePipe
   ],
   imports: [
     BrowserModule,

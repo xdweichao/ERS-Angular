@@ -23,14 +23,14 @@
                 <tr ALIGN="CENTER" >
 
                     <td>{{record.ticketid}}</td>
-                    <td>{{record.authorid}}</td>
+                    <td>{{record.author}}</td>
                     <td>{{record.amount}}</td>
                     <td>{{record.datesubmitted | date: 'yyyy-MM-dd'}}</td>
                     <td>{{record.dateresolved | date: 'yyyy-MM-dd'}}</td>
                     <td>{{record.description}}</td>
-                    <td><div ng-if='record.statusid === 1'>{{Pending}}</div>{{record.statusid}}</td>
-                    <td>{{record.typeid}}</td>
-                    <td *ngIf='record.statusid===1 && record.authorid!==userid' >
+                    <td><div ng-if='record.statusid === 1'>{{Pending}}</div>{{record.statusid | statusName}}</td>
+                    <td>{{record.typeid | actionType }}</td>
+                    <td *ngIf='record.statusid===1 && record.author!==authorname' >
                         <button class="mybutton3" mat-flat-button  (click)="approveRequest(record)">Approve</button>
                         <div class="divider"></div>
                         <button class="mybutton4" mat-flat-button (click)="denyRequest(record)">Deny</button>

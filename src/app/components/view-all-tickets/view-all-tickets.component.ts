@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import{ExpenseRecord} from '../../Models/ExpenseRecord';
-import {HttpClient, HttpResponse} from '@angular/common/http';
-//import 'rxjs/add/operator/map';
+import { ExpenseRecord } from '../../Models/ExpenseRecord';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ErsService } from 'src/app/shared/ers.service';
-import { tick } from '@angular/core/testing';
 import { UsersService } from 'src/app/shared/users.service';
+import { CreatorRecord } from 'src/app/Models/CreatorRecord';
+
 
 @Component({
   selector: 'app-view-all-tickets',
@@ -14,17 +14,19 @@ import { UsersService } from 'src/app/shared/users.service';
 })
 export class ViewAllTicketsComponent implements OnInit {
 
-  records: any; 
+  records: any;
   message = '';
   userid = -1;
+  authorname:string="";
 
   constructor(private http: HttpClient, private router: Router, private ersService: ErsService, private userService: UsersService) {
-       
-   }
+    
+  }
 
   ngOnInit() {
-    if(this.userService.user){
+    if (this.userService.user) {
       this.userid = this.userService.user.userid;
+      this.authorname = this.userService.user.firstname + " " + this.userService.user.lastname;
     }
     this.getAllUserTickets();
   }
@@ -39,33 +41,29 @@ export class ViewAllTicketsComponent implements OnInit {
   extractData(res: HttpResponse<Object>) {
     var key, count = 0;
     console.log('Obj: ' + JSON.stringify(res.body));
-    for(key in res.body) {
+    for (key in res.body) {
       console.log('Obj: ' + JSON.stringify(res.body[count]));
-        this.records.push(res.body[count++]);
+      this.records.push(res.body[count++]);
     }
   }
 
-  approveRequest(record:ExpenseRecord) {
+  approveRequest(record: CreatorRecord) {
     console.log("calling approve request");
-   
-    record.statusid=2;
-    record.dateresolved=new Date();
+    record.statusid = 2;
+    record.dateresolved = new Date();
     this.ersService.update(record);
     //this.router.navigateByUrl('/view-all-tickets');
     //this.message = 'Request Approved';
-   }
-   
-   denyRequest(record:ExpenseRecord) {
+  }
+
+  denyRequest(record: CreatorRecord) {
     console.log("calling deny request");
-   
-    record.statusid=2;
-    record.dateresolved=new Date();
+
+    record.statusid = 3;
+    record.dateresolved = new Date();
     this.ersService.update(record);
     //this.router.navigateByUrl('/view-all-tickets');
-   // this.message = 'Request Denied';
-   }
-
-
-
+    // this.message = 'Request Denied';
+  }
 
 }

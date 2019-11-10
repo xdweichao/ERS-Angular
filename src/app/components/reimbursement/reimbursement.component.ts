@@ -19,6 +19,7 @@ export class ReimbursementComponent implements OnInit {
   records: any; 
   message = '';
   isManager: boolean = false;
+  username: string = "";
  
   constructor(private http: HttpClient, private router: Router, private ersService: ErsService, private userService: UsersService) {
    }
@@ -26,11 +27,15 @@ export class ReimbursementComponent implements OnInit {
   ngOnInit() {
     if(this.userService.user) {
       this.isManager = this.userService.user.role === 2;
+      this.username = this.userService.user.firstname + " " + this.userService.user.lastname;
     }
     console.log('Manager: ' + this.isManager);
     this.getAll();
   }
 
+  //ngDoCheck() {
+    //this.getAll();
+  //}
   async getAll() {
     var tickets = await this.ersService.getAll();
     var objStr = JSON.stringify(tickets);
