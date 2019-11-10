@@ -65,5 +65,9 @@ export class ViewAllTicketsComponent implements OnInit {
     //this.router.navigateByUrl('/view-all-tickets');
     // this.message = 'Request Denied';
   }
-
+returnHome(){
+  console.log('returning home');
+  this.router.navigateByUrl('/reimbursement');
+    this.message = 'Return to home';
+}
 }

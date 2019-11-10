@@ -10,7 +10,7 @@
 
                 <input [(ngModel)]="inputUsername" name="Username" type="username" placeholder="Username">
                 <input [(ngModel)]="inputPassword" name="password" type="password" placeholder="password">
-                <button [disabled]="!(inputUsername && inputPassword)" (click)="submit()">Submit</button>
+                <button [disabled]="!(inputUsername && inputPassword)" (click)="submit()">Login</button>
 
                 <div *ngIf="invalidInput">
                     Invalid credentials.

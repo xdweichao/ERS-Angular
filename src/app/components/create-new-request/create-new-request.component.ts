@@ -51,5 +51,10 @@ export class CreateNewRequestComponent implements OnInit {
     this.ersService.create(this.ticket);
     this.router.navigateByUrl('/reimbursement');
   }
+  returnHome(){
+    console.log('returning home');
+    this.router.navigateByUrl('/reimbursement');
+     
+  }
 
 }
