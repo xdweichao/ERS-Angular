@@ -70,4 +70,9 @@ returnHome(){
   this.router.navigateByUrl('/reimbursement');
     this.message = 'Return to home';
 }
+loggingOut(){
+  console.log('Logged Out');
+  this.router.navigateByUrl('/login');
+    this.message = 'Logged Out';
+}
 }

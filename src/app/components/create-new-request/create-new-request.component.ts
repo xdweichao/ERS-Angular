@@ -56,5 +56,10 @@ export class CreateNewRequestComponent implements OnInit {
     this.router.navigateByUrl('/reimbursement');
      
   }
+  loggingOut(){
+    console.log('Logged Out');
+    this.router.navigateByUrl('/login');
+      
+  }
 
 }

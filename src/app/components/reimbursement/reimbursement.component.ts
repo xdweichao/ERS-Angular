@@ -63,7 +63,11 @@ export class ReimbursementComponent implements OnInit {
     this.router.navigateByUrl('/view-all-tickets');
     this.message = 'Viewing All Tickets';
   }
-  
+  loggingOut(){
+    console.log('Logged Out');
+    this.router.navigateByUrl('/login');
+      this.message = 'Logged Out';
+  }
 
 }
 
