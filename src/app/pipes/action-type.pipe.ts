@@ -7,9 +7,9 @@ export class ActionTypePipe implements PipeTransform {
 
   transform(value: number): string {
     const actionCodes = {
-        1: "Lodging",
-        2: "Travel",
-        3: "Food",
+        1: "Food",
+        2: "Lodging",
+        3: "Travel",
         4: "Other"
     };
     
