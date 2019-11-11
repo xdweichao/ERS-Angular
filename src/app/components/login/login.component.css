@@ -10,6 +10,7 @@ h1 {
     margin: 0;
     font-family: monospace;
     text-underline-position: below;
+    color: seashell ;
 } 
 
 h2{
@@ -17,7 +18,7 @@ h2{
     margin: 0;
     font-family: monospace;
     text-underline-position: below;
-
+    color: seashell ;
 }
 
 #bottom{
