@@ -10,20 +10,19 @@ h1 {
     margin: 0;
     font-family: monospace;
     text-underline-position: below;
-    color: seashell ;
-} 
+    color: seashell;
+}
 
-h2{
+h2 {
     padding-top: 30px;
     margin: 0;
     font-family: monospace;
     text-underline-position: below;
-    color: seashell ;
+    color: seashell;
 }
 
-#bottom{
+#bottom {
     background: #98ff99;
     width: 100vw;
     height: 50vh;
-    
 }
